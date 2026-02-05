@@ -1,4 +1,4 @@
-#1/bin/bash
+#!/bin/bash
 ###special varibkes #####
 
 echo "All arguments passed to the script: $@"
