@@ -1,5 +1,5 @@
 #!/bin/bash
-Number=25
+Number=$1
 
 # -gt ->greater than
 # -lt ->less than
@@ -8,9 +8,9 @@ Number=25
 
 if [ $Number -gt 20 ];
 then
-    echo "Number is greater than 20"
-else
-    echo "Number is less than or equal to 20"
+    echo "gIVEN NUMBER: $Number is greater than 20"
+elif [ $Number -lt 20 ];
+     echo "given number: $Number is equal to 20"
     else
      echo "given number: $Number is less than 20"
 fi
