@@ -27,7 +27,7 @@ VALIDATE(){
 
 for package in $@  #sudo sh-> all the arguments passed to the script
  do
-    dnf install $package &>> $LOGS_FILE
+    dnf list install $package &>> $LOGS_FILE
     if [ $? -ne 0 ]; then
         echo "$package not installed, installing now"
 
@@ -37,5 +37,5 @@ for package in $@  #sudo sh-> all the arguments passed to the script
             echo -e "$package is already installed, skipping installation" $Y SKIPPING $N"
             
         fi
-done
+        done
 
