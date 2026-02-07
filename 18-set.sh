@@ -14,7 +14,7 @@ N="\e[0m"
 
 
 if [ $USERID -ne 0 ]; then
-    echo -e ase run this script with root user access" | tee -a $LOGS_FILE
+    echo -e $ run this script with root user access" | tee -a $LOGS_FILE
     exit 1
 fi
 mkdir -p $LOGS_FOLDER
@@ -35,7 +35,7 @@ for package in $@  #sudo sh-> all the arguments passed to the script
         echo "$package not installed, installing now"
 
     dnf install $package -y &>> $LOGS_FILE
-    # VALIDATE $? "Installing $package"
+    VALIDATE $? "Installing $package"
         else
             echo -e "$package is already installed, skipping installation" $Y SKIPPING $N"
             
