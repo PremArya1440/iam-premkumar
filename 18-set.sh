@@ -4,7 +4,7 @@ set -e # this will be checking for error in each and every line of the script, i
 #!/bin/bash
 
 USERID=$(id -u)
-LOGS_FOLDER="/var/log/validation"
+LOGS_FOLDER="/var/log/shell-script"
 LOGS_FILE="/var/log/shell-script/$0.log"
 
 R="\e[31m"
