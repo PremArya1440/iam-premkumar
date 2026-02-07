@@ -37,7 +37,7 @@ for package in $@  #sudo sh-> all the arguments passed to the script
     dnf install $package -y &>> $LOGS_FILE
     VALIDATE $? "Installing $package"
         else
-            echo -e "$package is already installed, skipping installation" $Y SKIPPING $N"
+            echo -e "$package is already installed, skipping installation, $Y SKIPPING $N"
             
         fi
         done
