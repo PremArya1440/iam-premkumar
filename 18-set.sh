@@ -14,17 +14,17 @@ N="\e[0m"
 
 
 if [ $USERID -ne 0 ]; then
-    echo -e $ run this script with root user access" | tee -a $LOGS_FILE
+    echo -e "run this script with root user access" | tee -a $LOGS_FILE
     exit 1
 fi
 mkdir -p $LOGS_FOLDER
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo -e "$R $2 ... FAILURE $N" | tee -a $LOGS_FILE
+        echo -e "$R $2 ... FAILURE $N" | tee -a $LOGS_FILE"
         exit 1
     else
-        echo -e "$G $2 ... SUCCESS $Y" | tee -a $LOGS_FILE
+        echo -e "$G $2 ... SUCCESS $Y" | tee -a $LOGS_FILE"
     fi
 }
 
