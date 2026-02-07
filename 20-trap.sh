@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+trap 'echo "An error occurred at line $LINENO while executing: $BASH_COMMAND"' ERR
 
 USERID=$(id -u)
 LOGS_FOLDER="/var/log/validation"
@@ -16,14 +18,6 @@ if [ $USERID -ne 0 ]; then
 fi
 mkdir -p $LOGS_FOLDER
 
-VALIDATE(){
-    if [ $1 -ne 0 ]; then
-        echo -e "$R $2 ... FAILURE $N" | tee -a $LOGS_FILE
-        exit 1
-    else
-        echo -e "$G $2 ... SUCCESS $Y" | tee -a $LOGS_FILE
-    fi
-}
 
 for package in $@  #sudo sh-> all the arguments passed to the script
  do
@@ -32,7 +26,7 @@ for package in $@  #sudo sh-> all the arguments passed to the script
         echo "$package not installed, installing now"
 
     dnf install $package -y &>> $LOGS_FILE
-    VALIDATE $? "Installing $package"
+    
         else
             echo -e "$package is already installed, skipping installation $Y SKIPPING $N"
             
